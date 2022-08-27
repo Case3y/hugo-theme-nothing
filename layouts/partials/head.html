@@ -1,0 +1,14 @@
+<head>
+    <meta charset="utf-8">
+    {{ $header_css := resources.Get "header.css" }}
+    <link rel="stylesheet" href="{{ $header_css.RelPermalink }}">
+
+    {{ $list_css := resources.Get "list.css" }}
+    <link rel="stylesheet" href="{{ $list_css.RelPermalink }}">
+
+    {{ $index_css := resources.Get "index.css" }}
+    <link rel="stylesheet" href="{{ $index_css.RelPermalink }}">
+
+    {{ $single_css := resources.Get "single.css" }}
+    <link rel="stylesheet" href="{{ $single_css.RelPermalink }}">
+</head>

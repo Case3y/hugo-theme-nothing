@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+    <main class="single">
+        <h1>{{ .Title }}</h1>
+            {{ .Content }}
+    </main>
+{{ end }}

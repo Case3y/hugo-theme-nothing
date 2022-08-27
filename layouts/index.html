@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+    <main class="index">
+        <header>
+            <h1>{{.Title}}</h1>
+            {{ with .Params.subtitle }}
+                <span>{{.}}</span>
+            {{ end }}
+        </header>
+        <div>
+            {{.Content}}
+        </div>
+        <div>
+            {{ range first 10 .Site.RegularPages }}
+                {{ .Render "summary" }}
+            {{ end }}
+        </div>
+    </main>
+
+{{ end }}

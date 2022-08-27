@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+    <main class="list">
+        <article>
+            <header>
+                <h1>{{ .Title }}</h1>
+            </header>
+            {{ .Content }}
+        </article>
+        <!-- 年份排序 -->
+        {{ if (eq .Kind "section") }}
+            {{ $sectionPage := .CurrentSection }}
+            {{ range .Site.RegularPages }}
+                {{ if (.IsDescendant $sectionPage) }}
+                    {{ $.Scratch.Add "pages" (slice .) }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ $pages := .Scratch.Get "pages" }}
+        {{ range $pages.GroupByDate "2006" }}
+            {{ $.Scratch.Set "year" .Key }}
+        {{ end }}
+        {{ $year := $.Scratch.Get "year" }}
+        <h1 class="list-year">{{ $year }}</h1>
+        <ul>
+            {{ range .Pages }}
+                <li>
+                    <a href="{{.Permalink}}">{{.Title}}</a>
+                </li>
+            {{ end }}
+        </ul>
+        
+    </main>
+{{ end }}

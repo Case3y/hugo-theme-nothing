@@ -1,0 +1,36 @@
+nav h3 {
+    font-weight: 400;
+}
+
+nav {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    /* text-transform: uppercase; */
+}
+
+nav ul {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0 4em 0;
+}
+
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color:#000;
+    padding: 0.5em 2em;
+}
+
+.a-title {
+    display: block;
+    font-size: 24px;
+    margin: 1em 0;
+}
